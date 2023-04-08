@@ -1,0 +1,513 @@
+import java.util.Scanner;
+
+
+public class main {
+    public static void main(String[] args) {
+        int dongu = 5;
+        Scanner input = new Scanner(System.in);
+        dosya araci = new dosya();
+        mail darth = new mail();
+        String[] mailler = new String[];
+
+        while (dongu < 6) {
+
+            System.out.println(" 1- Elit uye ekleme\n" + "2- Genel uye ekleme\n" + "3- Mail Gonderme\n" + " 4- Cikis islemi");
+            int number = input.nextInt();
+           if(number == 4 )
+               break;
+            switch (number) {
+
+                case 1: {
+                    araci.yazmaelit();
+                    break;
+                }
+                case 2: {
+                    araci.yazmagenel();
+                    break;
+                }
+                case 3: {
+                    darth.starwars();
+                    break;
+                }
+                default:
+                    System.out.println("farkli bir rakam girdiniz");
+                    break;
+
+            }
+        }
+    }
+}
+class Arac{
+
+
+}
+
+
+class Kamyon extends Arac{
+ System.out.println(" kalıtım yapılmıştır");
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class dosya {
+    Scanner input = new Scanner(System.in);
+
+
+    public void yazmaelit(){
+        System.out.println("isim soy isim ve emailinizi bu sekilde giriniz İsimTABSoyisimTABemail");
+        String dosyaverisi = input.nextLine();
+
+        String ayrac = new String(new char[15]).replace("\0", "-");
+        String okunanVeri = null;
+        File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-elit.txt");
+        ///Dosya İçerisine Veri Yazma Ve Yazdırdığımız Veriyi Okumak İçin Gerekli Tanımlamalar \\\
+        FileWriter yazdir;
+        FileReader oku;
+        char okunanVeriler[];
+
+        try{
+            ///---> Dosya İçerisine Değer Ekleme Adımları <---\\\
+            yazdir = new FileWriter(yazDosya);
+            yazdir.write( dosyaverisi);
+            yazdir.close();
+            ///---> Dosya Okuma İşlemleri İçin Gerekli Adımlar <---\\\
+            oku = new FileReader(yazDosya);
+            okunanVeriler = new char[(int)yazDosya.length()];
+            oku.read(okunanVeriler);
+            okunanVeri = new String(okunanVeriler);
+            System.out.println(okunanVeri+"\n"+ayrac);
+
+        }
+        catch (IOException e){
+            System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+        }
+
+    }
+    public void yazmagenel(){
+        System.out.println("isim soy isim ve emailinizi bu sekilde giriniz İsimTABSoyisimTABemail");
+        String dosyaverisi = input.nextLine();
+
+        String ayrac = new String(new char[15]).replace("\0", "-");
+        String okunanVeri = null;
+        File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-genel.txt");
+
+        FileWriter yazdir;
+        FileReader oku;
+        char okunanVeriler[];
+
+        System.out.println("---------------------");
+        try{
+
+            yazdir = new FileWriter(yazDosya);
+            yazdir.write( dosyaverisi);
+            yazdir.close();
+
+            oku = new FileReader(yazDosya);
+            okunanVeriler = new char[(int)yazDosya.length()];
+            oku.read(okunanVeriler);
+            okunanVeri = new String(okunanVeriler);
+            System.out.println(okunanVeri+"\n"+ayrac);
+        }
+        catch (IOException e){
+            System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+        }
+
+    }
+
+}
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.Scanner;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
+public class mail  {
+
+    String ayrac = new String(new char[15]).replace("\0", "-");
+    String okunanVeri = null;
+    File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-elit.txt");
+    ///Dosya İçerisine Veri Yazma Ve Yazdırdığımız Veriyi Okumak İçin Gerekli Tanımlamalar \\\
+    FileWriter yazdir;
+    FileReader oku;
+    String str = okunanVeriler ;
+    String[] arrStr = str.split("   ");
+
+
+    char okunanVeriler[];
+
+        try{
+        ///---> Dosya İçerisine Değer Ekleme Adımları <---\\\
+        yazdir = new FileWriter(yazDosya);
+        yazdir.write( dosyaverisi);
+        yazdir.close();
+        ///---> Dosya Okuma İşlemleri İçin Gerekli Adımlar <---\\\
+        oku = new FileReader(yazDosya);
+        okunanVeriler = new char[(int)yazDosya.length()];
+        oku.read(okunanVeriler);
+        okunanVeri = new String(okunanVeriler);
+        System.out.println(okunanVeri+"\n"+ayrac);
+
+    }
+        catch (
+    IOException e){
+        System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+    }
+
+    Scanner input = new Scanner(System.in);
+
+
+         try {
+        // e-postayı göndereceğiniz adres
+        System.out.println("lütfen e mail adresinizi girin");
+        String name = input.nextLine();
+        String from = name;
+        // hesabınızın parolası
+        System.out.println("lütfen e mail sifrenizi girin");
+        String sifre = input.nextLine();
+        String pass = sifre;
+        // e-postanın gönderileceği adresler
+        for(int i=0;i<10;i++){
+        String[] to = { for (String el: arrStr){
+
+                for(int i= 0 ; i<20 ;i++) {
+                    if(i%2==0){System.out.println(el);
+                }
+                }
+               };
+        }
+        // host
+        String host = "smtp.gmail.com";
+
+        Properties props = System.getProperties();
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", from);
+        props.put("mail.smtp.password", pass);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
+        Session session = Session.getDefaultInstance(props, null);
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(from));
+        InternetAddress[] toAddress = new InternetAddress[to.length];
+        for (int i = 0; i < to.length; i++) {
+            toAddress[i] = new InternetAddress(to[i]);
+        }
+
+        for (int i = 0; i < toAddress.length; i++) {
+            message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+        }
+        // başlık
+        message.setSubject("vizeden 100 alma challenge");
+        // içerik
+        message.setText("Bu Java kodu ile gönderilmiş bir elektronik postadır !!!");
+        Transport transport = session.getTransport("smtp");
+        transport.connect(host, from, pass);
+        transport.sendMessage(message, message.getAllRecipients());
+        transport.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+
+
+
+
+    public void starwars(){
+        int dongu2 = 5 ;
+        while (dongu2< 6){
+            System.out.println("1- Elit üyelere mail\n" + "2- Genel üyelere mail\n" + "3- Tüm üyelere mail\n" + "4-ust menu");
+            int number = input.nextInt();
+            if(number == 4 )
+                break;
+            switch (number) {
+
+                case 1: {
+                    String ayrac = new String(new char[15]).replace("\0", "-");
+                    String okunanVeri = null;
+                    File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-genel.txt");
+                    ///Dosya İçerisine Veri Yazma Ve Yazdırdığımız Veriyi Okumak İçin Gerekli Tanımlamalar \\\
+                    FileWriter yazdir;
+                    FileReader oku;
+                    String str = okunanVeriler ;
+                    String[] arrStr = str.split("   ");
+
+
+                    char okunanVeriler[];
+
+                    try{
+                        ///---> Dosya İçerisine Değer Ekleme Adımları <---\\\
+                        yazdir = new FileWriter(yazDosya);
+                        yazdir.write( dosyaverisi);
+                        yazdir.close();
+                        ///---> Dosya Okuma İşlemleri İçin Gerekli Adımlar <---\\\
+                        oku = new FileReader(yazDosya);
+                        okunanVeriler = new char[(int)yazDosya.length()];
+                        oku.read(okunanVeriler);
+                        okunanVeri = new String(okunanVeriler);
+                        System.out.println(okunanVeri+"\n"+ayrac);
+
+                    }
+                    catch (
+                            IOException e){
+                        System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+                    }
+
+                    Scanner input = new Scanner(System.in);
+
+
+                    try {
+                        // e-postayı göndereceğiniz adres
+                        System.out.println("lütfen e mail adresinizi girin");
+                        String name = input.nextLine();
+                        String from = name;
+                        // hesabınızın parolası
+                        System.out.println("lütfen e mail sifrenizi girin");
+                        String sifre = input.nextLine();
+                        String pass = sifre;
+                        // e-postanın gönderileceği adresler
+                        for(int i=0;i<10;i++){
+                            String[] to = { for (String el: arrStr){
+
+                                for(int i= 0 ; i<20 ;i++) {
+                                    if(i%2==0){System.out.println(el);
+                                    }
+                                }
+                            };
+        }
+                            // host
+                            String host = "smtp.gmail.com";
+
+                            Properties props = System.getProperties();
+                            props.put("mail.smtp.starttls.enable", "true");
+                            props.put("mail.smtp.host", host);
+                            props.put("mail.smtp.user", from);
+                            props.put("mail.smtp.password", pass);
+                            props.put("mail.smtp.port", "587");
+                            props.put("mail.smtp.auth", "true");
+
+                            Session session = Session.getDefaultInstance(props, null);
+                            MimeMessage message = new MimeMessage(session);
+                            message.setFrom(new InternetAddress(from));
+                            InternetAddress[] toAddress = new InternetAddress[to.length];
+                            for (int i = 0; i < to.length; i++) {
+                                toAddress[i] = new InternetAddress(to[i]);
+                            }
+
+                            for (int i = 0; i < toAddress.length; i++) {
+                                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+                            }
+                            // başlık
+                            message.setSubject("vizeden 100 alma challenge");
+                            // içerik
+                            message.setText("Bu Java kodu ile gönderilmiş bir elektronik postadır !!!");
+                            Transport transport = session.getTransport("smtp");
+                            transport.connect(host, from, pass);
+                            transport.sendMessage(message, message.getAllRecipients());
+                            transport.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                    break;
+                }
+                case 2: {
+                    String ayrac = new String(new char[15]).replace("\0", "-");
+                    String okunanVeri = null;
+                    File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-elit.txt");
+                    ///Dosya İçerisine Veri Yazma Ve Yazdırdığımız Veriyi Okumak İçin Gerekli Tanımlamalar \\\
+                    FileWriter yazdir;
+                    FileReader oku;
+                    String str = okunanVeriler ;
+                    String[] arrStr = str.split("   ");
+
+
+                    char okunanVeriler[];
+
+                    try{
+                        ///---> Dosya İçerisine Değer Ekleme Adımları <---\\\
+                        yazdir = new FileWriter(yazDosya);
+                        yazdir.write( dosyaverisi);
+                        yazdir.close();
+                        ///---> Dosya Okuma İşlemleri İçin Gerekli Adımlar <---\\\
+                        oku = new FileReader(yazDosya);
+                        okunanVeriler = new char[(int)yazDosya.length()];
+                        oku.read(okunanVeriler);
+                        okunanVeri = new String(okunanVeriler);
+                        System.out.println(okunanVeri+"\n"+ayrac);
+
+                    }
+                    catch (
+                            IOException e){
+                        System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+                    }
+
+                    Scanner input = new Scanner(System.in);
+
+
+                    try {
+                        // e-postayı göndereceğiniz adres
+                        System.out.println("lütfen e mail adresinizi girin");
+                        String name = input.nextLine();
+                        String from = name;
+                        // hesabınızın parolası
+                        System.out.println("lütfen e mail sifrenizi girin");
+                        String sifre = input.nextLine();
+                        String pass = sifre;
+                        // e-postanın gönderileceği adresler
+                        for(int i=0;i<10;i++){
+                            String[] to = { for (String el: arrStr){
+
+                                for(int i= 0 ; i<20 ;i++) {
+                                    if(i%2==0){System.out.println(el);
+                                    }
+                                }
+                            };
+        }
+                            // host
+                            String host = "smtp.gmail.com";
+
+                            Properties props = System.getProperties();
+                            props.put("mail.smtp.starttls.enable", "true");
+                            props.put("mail.smtp.host", host);
+                            props.put("mail.smtp.user", from);
+                            props.put("mail.smtp.password", pass);
+                            props.put("mail.smtp.port", "587");
+                            props.put("mail.smtp.auth", "true");
+
+                            Session session = Session.getDefaultInstance(props, null);
+                            MimeMessage message = new MimeMessage(session);
+                            message.setFrom(new InternetAddress(from));
+                            InternetAddress[] toAddress = new InternetAddress[to.length];
+                            for (int i = 0; i < to.length; i++) {
+                                toAddress[i] = new InternetAddress(to[i]);
+                            }
+
+                            for (int i = 0; i < toAddress.length; i++) {
+                                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+                            }
+                            // başlık
+                            message.setSubject("vizeden 100 alma challenge");
+                            // içerik
+                            message.setText("Bu Java kodu ile gönderilmiş bir elektronik postadır !!!");
+                            Transport transport = session.getTransport("smtp");
+                            transport.connect(host, from, pass);
+                            transport.sendMessage(message, message.getAllRecipients());
+                            transport.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    break;
+                }
+                case 3: {
+                    String ayrac = new String(new char[15]).replace("\0", "-");
+                    String okunanVeri = null;
+                    File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-elit.txt");
+                    ///Dosya İçerisine Veri Yazma Ve Yazdırdığımız Veriyi Okumak İçin Gerekli Tanımlamalar \\\
+                    FileWriter yazdir;
+                    FileReader oku;
+                    String str = okunanVeriler ;
+                    String[] arrStr = str.split("   ");
+
+
+                    char okunanVeriler[];
+
+                    try{
+                        ///---> Dosya İçerisine Değer Ekleme Adımları <---\\\
+                        yazdir = new FileWriter(yazDosya);
+                        yazdir.write( dosyaverisi);
+                        yazdir.close();
+                        ///---> Dosya Okuma İşlemleri İçin Gerekli Adımlar <---\\\
+                        oku = new FileReader(yazDosya);
+                        okunanVeriler = new char[(int)yazDosya.length()];
+                        oku.read(okunanVeriler);
+                        okunanVeri = new String(okunanVeriler);
+                        System.out.println(okunanVeri+"\n"+ayrac);
+
+                    }
+                    catch (
+                            IOException e){
+                        System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+                    }
+
+                    Scanner input = new Scanner(System.in);
+
+
+                    try {
+                        // e-postayı göndereceğiniz adres
+                        System.out.println("lütfen e mail adresinizi girin");
+                        String name = input.nextLine();
+                        String from = name;
+                        // hesabınızın parolası
+                        System.out.println("lütfen e mail sifrenizi girin");
+                        String sifre = input.nextLine();
+                        String pass = sifre;
+                        // e-postanın gönderileceği adresler
+                        for(int i=0;i<10;i++){
+                            String[] to = { for (String el: arrStr){
+
+                                for(int i= 0 ; i<20 ;i++) {
+                                    if(i%2==0){System.out.println(el);
+                                    }
+                                }
+                            };
+        }
+                            // host
+                            String host = "smtp.gmail.com";
+
+                            Properties props = System.getProperties();
+                            props.put("mail.smtp.starttls.enable", "true");
+                            props.put("mail.smtp.host", host);
+                            props.put("mail.smtp.user", from);
+                            props.put("mail.smtp.password", pass);
+                            props.put("mail.smtp.port", "587");
+                            props.put("mail.smtp.auth", "true");
+
+                            Session session = Session.getDefaultInstance(props, null);
+                            MimeMessage message = new MimeMessage(session);
+                            message.setFrom(new InternetAddress(from));
+                            InternetAddress[] toAddress = new InternetAddress[to.length];
+                            for (int i = 0; i < to.length; i++) {
+                                toAddress[i] = new InternetAddress(to[i]);
+                            }
+
+                            for (int i = 0; i < toAddress.length; i++) {
+                                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+                            }
+                            // başlık
+                            message.setSubject("vizeden 100 alma challenge");
+                            // içerik
+                            message.setText("Bu Java kodu ile gönderilmiş bir elektronik postadır !!!");
+                            Transport transport = session.getTransport("smtp");
+                            transport.connect(host, from, pass);
+                            transport.sendMessage(message, message.getAllRecipients());
+                            transport.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                    break;
+                }
+                default:
+                    System.out.println("farkli bir rakam girdiniz");
+                    break;
+
+            }
+        }
+    }
+}
+
