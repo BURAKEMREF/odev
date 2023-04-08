@@ -1,0 +1,121 @@
+import java.util.Scanner;
+
+
+public class main {
+    public static void main(String[] args) {
+        int dongu = 5;
+        Scanner input = new Scanner(System.in);
+        dosya araci = new dosya();
+        mail darth = new mail();
+        String[] mailler = new String[];
+
+        while (dongu < 6) {
+
+            System.out.println(" 1- Elit uye ekleme\n" + "2- Genel uye ekleme\n" + "3- Mail Gonderme\n" + " 4- Cikis islemi");
+            int number = input.nextInt();
+           if(number == 4 )
+               break;
+            switch (number) {
+
+                case 1: {
+                    araci.yazmaelit();
+                    break;
+                }
+                case 2: {
+                    araci.yazmagenel();
+                    break;
+                }
+                case 3: {
+                    darth.starwars();
+                    break;
+                }
+                default:
+                    System.out.println("farkli bir rakam girdiniz");
+                    break;
+
+            }
+        }
+    }
+}
+class Arac{
+
+
+}
+
+
+class Kamyon extends Arac{
+ System.out.println(" kalıtım yapılmıştır");
+}
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class dosya {
+    Scanner input = new Scanner(System.in);
+
+
+    public void yazmaelit(){
+        System.out.println("isim soy isim ve emailinizi bu sekilde giriniz İsimTABSoyisimTABemail");
+        String dosyaverisi = input.nextLine();
+
+        String ayrac = new String(new char[15]).replace("\0", "-");
+        String okunanVeri = null;
+        File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-elit.txt");
+        ///Dosya İçerisine Veri Yazma Ve Yazdırdığımız Veriyi Okumak İçin Gerekli Tanımlamalar \\\
+        FileWriter yazdir;
+        FileReader oku;
+        char okunanVeriler[];
+
+        try{
+            ///---> Dosya İçerisine Değer Ekleme Adımları <---\\\
+            yazdir = new FileWriter(yazDosya);
+            yazdir.write( dosyaverisi);
+            yazdir.close();
+            ///---> Dosya Okuma İşlemleri İçin Gerekli Adımlar <---\\\
+            oku = new FileReader(yazDosya);
+            okunanVeriler = new char[(int)yazDosya.length()];
+            oku.read(okunanVeriler);
+            okunanVeri = new String(okunanVeriler);
+            System.out.println(okunanVeri+"\n"+ayrac);
+
+        }
+        catch (IOException e){
+            System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+        }
+
+    }
+    public void yazmagenel(){
+        System.out.println("isim soy isim ve emailinizi bu sekilde giriniz İsimTABSoyisimTABemail");
+        String dosyaverisi = input.nextLine();
+
+        String ayrac = new String(new char[15]).replace("\0", "-");
+        String okunanVeri = null;
+        File yazDosya = new File("C:\\Darth vader\\dosya-yazma-islemi-genel.txt");
+
+        FileWriter yazdir;
+        FileReader oku;
+        char okunanVeriler[];
+
+        System.out.println("---------------------");
+        try{
+
+            yazdir = new FileWriter(yazDosya);
+            yazdir.write( dosyaverisi);
+            yazdir.close();
+
+            oku = new FileReader(yazDosya);
+            okunanVeriler = new char[(int)yazDosya.length()];
+            oku.read(okunanVeriler);
+            okunanVeri = new String(okunanVeriler);
+            System.out.println(okunanVeri+"\n"+ayrac);
+        }
+        catch (IOException e){
+            System.out.println("-> Hata Mesajım: "+ e.getMessage()+"\n-> Hata Kodum: "+ e.hashCode());
+        }
+
+    }
+
+}
